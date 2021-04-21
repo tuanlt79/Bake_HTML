@@ -1,0 +1,447 @@
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BEM __ :child , --:modify */
+
+.header {
+  background-color: #4e2a84;
+}
+.header__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 70px;
+}
+
+.header__content a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.header__content > a {
+  font-size: 35px;
+  font-weight: 600;
+}
+.header__content__navbar a {
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 15px;
+}
+.header__content__navbar a:hover {
+  color: #ff0e83;
+}
+/* flexbox */
+.header__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* flex-direction: column; */
+}
+
+.carousel {
+  background-image: url(../images/b3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel__content {
+  text-align: center;
+
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  /* hiệu ứng chạy vô tận */
+  /* animation-iteration-count: infinite; */
+}
+
+.carousel__content p {
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: 600;
+}
+.carousel__content span {
+  color: #d1d1d1;
+  font-size: 17px;
+  display: block;
+  margin: 20px 0;
+  font-weight: 600;
+}
+.carousel__content button {
+  background-color: #ff0e83;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+}
+
+.video {
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.video__list {
+  display: flex;
+  margin: 0 -10px;
+}
+
+.video__item {
+  width: 50%;
+  padding: 0 10px;
+}
+
+.video__item video,
+.video__item iframe {
+  width: 100%;
+  height: 400px;
+}
+
+.team {
+  background-color: #4e2a84;
+  /* border: 1px solid transparent; */
+}
+
+/* toàn bộ phần team lọt vào giữa */
+.team__content {
+  max-width: 1200px;
+  margin: auto;
+  /* đẩy tiêu đề H1 xuống */
+  padding-top: 30px;
+}
+
+/* lẩy thẻ con h1 trực tiếp */
+.team__content > h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+/* kéo tất cả item lên 1 hàng đặt flex ở thằng cha */
+.team__row {
+  display: flex;
+  /* chỉnh xuống 1 hàng có 3 item chứa được full 3 item */
+  flex-wrap: wrap;
+  /* kéo dãn ra trở lại như cũ của item */
+  margin: 0 -15px;
+}
+
+/* tính toàn sài tool chia 3 tấm hình ở 1 hàng */
+.team__col {
+  width: calc(100% / 3);
+  /* cách nhau ra của item */
+  padding: 0 15px;
+}
+
+.team__item {
+  /* chỉnh tránh đè lên hình */
+  position: relative;
+  margin-bottom: 30px;
+  /* khi nội dung item nó bị tràng ra khỏi item thì bị ẩn */
+  overflow: hidden;
+  box-shadow: -10px -20px 10px red in;
+}
+/* chỉnh cho nó đầy đủ item */
+
+.team__item__info {
+  background-color: #ff0e83;
+  color: #ffffff;
+  padding: 20px;
+  /* chỉnh tránh đè lên hình */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.team__item__info p {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+/* ######################################## */
+/* nằm đè lên hình sử position */
+.team__item__overlay {
+  position: absolute;
+  /* kích thước bằng thằng cha */
+  width: 100%;
+  height: 100%;
+  /* phủ kín là top 0 lef 0 */
+  top: 0;
+  left: 0;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+
+  /* kéo vào giữa content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.team__item__overlay p:first-child {
+  color: #ff0e83;
+  font-size: 25px;
+  font-weight: 600;
+}
+.team__item__overlay span {
+  color: #ffffff;
+  margin: 10px 0;
+  display: block;
+}
+.team__item__overlay p {
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 30px;
+}
+.team__item__social i {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  /* tạo hình vuông set cứng */
+  width: 40px;
+  height: 40px;
+  /* chuyển vào giữa */
+  text-align: center;
+  line-height: 40px;
+  /* đẩy icon */
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+/* rê chuột vào thẻ vào icon đổi màu */
+.team__item__social i:hover {
+  color: #ff0e83;
+  border-color: #ff0e83;
+  /* đổi màu từng cái icon */
+  transition: all 0.3s ease;
+}
+/* tạo động */
+
+/* làm ẩn overlay */
+.team__item--1 .team__item__overlay {
+  opacity: 0;
+  visibility: hidden;
+}
+/* làm hiện overlay */
+.team__item--1:hover .team__item__overlay {
+  opacity: 1;
+  visibility: visible;
+  /* làm chậm hiệu ứng */
+  transition-property: all;
+  transition-duration: 0.3s;
+  /* chuyển động đều */
+  transition-timing-function: linear;
+  /* hiện từ 0->5s
+    transition-delay: 0.5s; */
+}
+/* làm biến mất div item màu hồng */
+.team__item:hover .team__item__info {
+  display: none;
+}
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+
+/* từ trên đi xuống */
+.team__item--2 .team__item__overlay {
+  top: -100%;
+
+  /* thay đổi kích thước hình dạng của thẻ theo trục tọa độ (translate: (x,y); )
+  transform: translate(0, -100%); */
+}
+.team__item--2:hover .team__item__overlay {
+  top: 0;
+  /* thêm thuộc tính transform nếu sử dụng trục tọa độ x,y */
+  /* transform: translate(0, 0); */
+  transition: all 0.3s linear;
+}
+.team__item:hover .team__item__info {
+  display: none;
+}
+/* khi nội dung item nó bị tràng ra khỏi item thì bị ẩn để trên thằng cha team__item
+ overflow: hidden; */
+
+/* %%%%%%%%%%%%%%%%%%item số 3%%%%%%%%%%%%%%%%%%%%% */
+/* phóng thẻ nhỏ tới lớn */
+.team__item--3 .team__item__overlay {
+  transform: scale(0, 0);
+}
+.team__item--3:hover .team__item__overlay {
+  transform: scale(1, 1);
+  transition: all 0.3s linear;
+}
+.team__item:hover .team__item__info {
+  display: none;
+}
+/*^^^^^^^^^^^^^^^^^item số 4^^^^^^^^^^^^^^^^^^6^^^^^^^ */
+/* xoay 360 độ */
+.team__item--4 .team__item__overlay {
+  opacity: 0;
+  visibility: hidden;
+}
+.team__item--4:hover .team__item__overlay {
+  opacity: 1;
+  visibility: visible;
+  /* xoay 360 độ(deg) */
+  transform: rotate(360deg);
+  transition: all 0.3s linear;
+}
+.team__item:hover .team__item__info {
+  display: none;
+}
+/* &&&&&&&&&&&&&&&&&&&item 5&&&&&&&&&&&&&&&&&&&& */
+/* vừa phòng vừa xoay */
+.team__item--5 .team__item__overlay {
+  transform: scale(0, 0);
+}
+.team__item--5:hover .team__item__overlay {
+  transform: scale(1, 1) rotate(360deg);
+
+  transition: all 1s linear;
+}
+.team__item:hover .team__item__info {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------- */
+.contact__form form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+.contact__form__col {
+  width: 100%;
+  padding: 0 15px;
+}
+.w-50 {
+  width: 50%;
+}
+
+.contact > h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+}
+.contact__form {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact__form__col input[type="text"],
+.contact__form__col input[type="email"],
+.contact__form__col select,
+.contact__form__col textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+}
+
+.contact__form__col button {
+  display: block;
+  width: 100%;
+  background-color: #ff0e83;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.contact__form__col label:first-child {
+  margin-right: 40px;
+}
+
+.intro {
+  /* background-color: #4e2a84; */
+  /* trải màu từ phải sang trái ( trái sang phải to right) ( trên là to top) */
+  background-image: linear-gradient(to left, red, green, yellow, purple);
+  color: #d1d1d1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-gap: 20px; */
+  grid-column: 40px;
+  /* grid-row: 20px; */
+}
+
+.intro__item img {
+  width: 100%;
+}
+.intro__item--2 {
+  grid-column: 2 / span 2;
+}
+
+.intro__item--4 {
+  grid-column: 1 / span 2;
+}
+
+.intro__item--9 {
+  grid-column: 3 / span 2;
+}
+
+@keyframes bounce {
+  /* 0 => 100%. Vd: 4s => 100% */
+  0% {
+    transform: translate(0, -300px);
+    opacity: 0;
+  }
+  70% {
+    transform: translate(0, 100px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.demo {
+  background-color: red;
+  width: 800px;
+  height: 600px;
+  border-radius: 70px;
+  position: relative;
+}
+.ball {
+  width: 140px;
+  height: 140px;
+  background-color: green;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* -----gắn hiệu ứng--- */
+  animation: ball 5s linear 0s infinite;
+}
+.ball:hover {
+  animation-play-state: paused;
+}
+@keyframes ball {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    left: 0;
+    top: calc(100% - 140px);
+  }
+  50% {
+    top: calc(100% - 140px);
+    left: calc(100% - 140px);
+  }
+  75% {
+    top: 0;
+    left: calc(100% - 140px);
+  }
+  100% {
+    top: 0;
+    left: 0;
+  }
+}
+
+.header__animation {
+  animation-duration: 10s;
+}
